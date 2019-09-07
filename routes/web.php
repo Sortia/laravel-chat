@@ -14,7 +14,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    event(new \App\Events\TestEvent());
 });
 
 Route::get('/chat', 'ChatController@index');
+
+Route::post('/addMessage', 'ChatController@addMessage');
